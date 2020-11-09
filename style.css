@@ -99,7 +99,7 @@
     transition      : .4s ease;
     font-size       : 18px;
     padding-left    : 10px;
-    transform-origin: center;
+    transform-origin: center ; 
 }
 
 .menusContainer .menu:hover .menuLink {
@@ -283,12 +283,22 @@
 
     .menusContainer .menuLink {
         display        : block;
-        height         : 50px;
-        line-height    : 50px;
+        height         : 60px;
+        line-height    : 60px;
         width          : 100%;
         justify-content: start;
         align-items    : center;
         padding        : auto;
+    }
+    .loginContainer{
+        height:100px;
+        line-height : 60px;
+        display:block;
+        width:100%;
+        padding:25px
+    }
+    .loginContainer .btn{
+        border-radius: 4px;
     }
 
     .menuDropdown {
@@ -305,11 +315,19 @@
         visibility   : visible;
         display      : none;
     }
-
+    .menusContainer .menu:hover .menuLink .fa {
+        color     : #409de2;
+        transition: .4s ease;
+        transform : rotate(0deg);
+    }
     .menusContainer .menu.open .menuDropdown {
         transition: .5s ease;
         display   : block;
         height    : auto
+    }
+    .menusContainer .menu .menuLink .fa {
+       float:right;
+       margin-top: 25px;
     }
 
     .menusContainer .menu.open .menuLink .fa {
