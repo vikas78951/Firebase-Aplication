@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta charset="UT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Application</title>
+
+
+
+    <!-- FA ICON CDN  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- BASED CSS  -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+
+<body>
+   <div class="application" id="applicationBody">
+
+  
+
+    <nav class="navContainer">
+        <div class="brandContainer">
+            <img class="brandImg" src="./assets/Skull-Icon.svg" alt="">
+            <span class="brandName">skuller</span>
+        </div>
+        <ul class="menusContainer">
+            <li class="menu">
+                <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+                <div class="menuDropdown">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
+                    facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
+                    voluptate rem molestias ipsum.
+
+                </div>
+            </li>
+            <li class="menu">
+                <a class="menuLink"> link 1 </a>
+            </li>
+            <li class="menu">
+                <a class="menuLink"> link 1 </a>
+            </li>
+            <li class="menu">
+                <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+                <div class="menuDropdown">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
+                    facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
+                    voluptate rem molestias ipsum.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
+                    facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
+                    voluptate rem molestias ipsum.
+                </div>
+            </li>
+            <li class="menu">
+                <a class="menuLink"> link 1 </a>
+            </li>
+            <li class="menu">
+                <a class="menuLink"> link 1 </a>
+            </li>
+            <li class="menu">
+                <a class="menuLink"> link 1 </a>
+            </li>
+            <li class="menu">
+                <div class="loginContainer">
+                    <button class="loginBtn btn" onclick="popup('loginModal')"> <i class="fa fa-user"></i>  Login </button>
+                </div>
+                <div class="userContainer">
+                    user and logout
+                </div>
+
+               <!-- <div class="buttonContainer">
+                   <div class="userdetail">
+                    <div class="detail">
+
+                    </div>
+                    <button class="loginBtn btn">  <i class="fa fa-user-times"></i>  Signout  </button>
+                   </div>
+               </div> -->
+            </li>
+
+        </ul>
+        <div class="hamburgerContainer" id="hamburger">
+            <span class="stroke stroke1">1</span>
+            <span class="stroke stroke2">2</span>
+            <span class="stroke stroke3">3</span>
+        </div>
+    </nav>
+    <div class="navMask"> mask </div>
+
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+
+
+</div>
+
+    <div class="popupContainer " id="loginModal">
+        <div class="popupContent">
+            <h4 class="formHeader">
+                Login to Application
+            </h4>
+            <input type="text" class="inputfield" placeholder="Email..." id="loginEmailField">
+            <input type="password" class="inputfield" placeholder="Password..." id="loginPassField">
+            <div class="actionBtnContainer">
+                <button class="btn" onclick="login()">Login</button>
+                <button class="btn" onclick="popup('signupModal')">Signup</button>    
+            </div>
+            <span class="crossButton" onclick="popup('loginModal')"><i class="fa fa-times"></i></span>
+        </div>
+    </div>
+
+    <div class="popupContainer " id="signupModal">
+        <div class="popupContent">
+            <h4 class="formHeader">   Signup to Application   </h4>
+            <input type="text" class="inputfield" placeholder="First Name..." id="firstnameField">
+            <input type="text" class="inputfield" placeholder="Last Name..." id="lastnameField">
+            <input type="text" class="inputfield" placeholder="Email..." id="emailField">
+            <input type="password" class="inputfield" placeholder="Password..." id="passwordField">
+            <div class="actionBtnContainer">
+                <button class="btn" onclick="popup('loginModal')">Login</button>
+                <button class="btn" onclick="signup()">Register</button>    
+            </div>
+            <span class="crossButton" onclick="popup('signupModal')"><i class="fa fa-times"></i></span>
+        </div>
+    </div>
+
+
+    <!-- firebase cdn  -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+
+    <script src="javascript.js"></script>
+
+
+
+
+</body></html>
