@@ -39,6 +39,7 @@
 .brandContainer {
     height     : var(--headerHeight);
     display    : flex;
+    justify-content: center;
     align-items: center;
     min-width  : 225px;
     z-index    : 20;
@@ -99,7 +100,7 @@
     transition      : .4s ease;
     font-size       : 18px;
     padding-left    : 10px;
-    transform-origin: center ; 
+    transform-origin: center ;
 }
 
 .menusContainer .menu:hover .menuLink {
@@ -152,9 +153,6 @@
 }
 
 
-
-
-
 /* DROPDOWN  */
 .menuDropdown {
     position     : absolute;
@@ -184,7 +182,9 @@
 }
 
 
-
+.userContainer .menuDropdown{
+    right:10px
+}
 .btn {
     padding      : 10px 20px;
     border       : none;
@@ -197,14 +197,15 @@
     font-size    : 16px;
     cursor       : pointer;
     transition   : .2s ease;
+    width:max-content
 }
 
 .btn:hover {
     transform: translate(0px, -2px) scale(1.05)
 }
 
-.loginBtn {
-    margin-right: 25px;
+.navbuttons{
+    margin-right: 50px;
 }
 
 .userdetail {
@@ -296,7 +297,7 @@ display:none
 /* //////////////////// */
 /* MEDIA QUERY  */
 /* /////////////////// */
-@media (min-width:701px) {
+@media (min-width:901px) {
     .menusContainer .menu:hover .menuDropdown {
         transition: .5s ease;
         opacity   : 1;
@@ -351,11 +352,18 @@ display:none
     .menuDropdown::before {
         left: 20%;
     }
+    .userContainer .menuDropdown{
+        left:-60%
+    }
+    .userContainer  .menuDropdown::before {
+        left: 75%;
+    }
+
 
 
 }
 
-@media (max-width:800px) {
+@media (max-width:950px) {
     .menusContainer {
         width           : 100%;
         display         : flex;
@@ -402,14 +410,16 @@ display:none
         align-items    : center;
         padding        : auto;
     }
-    .loginContainer{
+
+    .loginContainer ,.userContainer{
         height:100px;
         line-height : 60px;
         display:block;
         width:100%;
-        padding:25px
+        padding:25px;
+        position: relative;
     }
-    .loginContainer .btn{
+    .loginContainer .btn , .userContainer {
         border-radius: 4px;
     }
 
@@ -447,15 +457,20 @@ display:none
         transform : rotate(-180deg);
     }
 
-    .menusContainer .menu.open .menuLink .btn .fa {
+    .menusContainer .menu.open  .btn .fa {
         transition: .3s ease;
         transform : rotate(0deg);
     }
 
-
     .menuDropdown::before {
         display: none;
     }
+
+    .userContainer .menuDropdown{
+        left:0%
+    }
+
+
 
 }
 
@@ -464,7 +479,5 @@ display:none
 .popupContainer{
     transform: translate(-25% , -50%) !important;
     left:30%;
-
-    
 }
 }

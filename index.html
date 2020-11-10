@@ -12,14 +12,14 @@
     <!-- BASED CSS  -->
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="style.css">
-    
+
 
 </head>
 
 <body>
    <div class="application" id="applicationBody">
 
-  
+
 
     <nav class="navContainer">
         <div class="brandContainer">
@@ -64,20 +64,21 @@
             </li>
             <li class="menu">
                 <div class="loginContainer">
-                    <button class="loginBtn btn" onclick="popup('loginModal')"> <i class="fa fa-user"></i>  Login </button>
+                    <button class="navbuttons btn" onclick="popup('loginModal')"> <i class="fa fa-user"></i>  Login </button>
                 </div>
                 <div class="userContainer">
-                    user and logout
+                        <button class="navbuttons btn">
+                            <i class="fa fa-user"></i> <span class="userDetails" id="logedinUser"></span>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="menuDropdown actionBtnContainer" style="flex-direction: column;">
+                            <button class="btn fullWidth" onclick=""> <i class="fa fa-user"></i>  Update Pofile </button>
+                            <button class="btn fullWidth" onclick="logout()"> <i class="fa fa-user"></i>  Logout </button>
+                        </div>
                 </div>
 
-               <!-- <div class="buttonContainer">
-                   <div class="userdetail">
-                    <div class="detail">
 
-                    </div>
-                    <button class="loginBtn btn">  <i class="fa fa-user-times"></i>  Signout  </button>
-                   </div>
-               </div> -->
+
             </li>
 
         </ul>
@@ -106,8 +107,8 @@
             <input type="text" class="inputfield" placeholder="Email..." id="loginEmailField">
             <input type="password" class="inputfield" placeholder="Password..." id="loginPassField">
             <div class="actionBtnContainer">
-                <button class="btn" onclick="login()">Login</button>
-                <button class="btn" onclick="popup('signupModal')">Signup</button>    
+                <button class="btn" type="submit" onclick="login()">Login</button>
+                <button class="btn" onclick="popup('signupModal')">Signup</button>
             </div>
             <span class="crossButton" onclick="popup('loginModal')"><i class="fa fa-times"></i></span>
         </div>
@@ -116,13 +117,12 @@
     <div class="popupContainer " id="signupModal">
         <div class="popupContent">
             <h4 class="formHeader">   Signup to Application   </h4>
-            <input type="text" class="inputfield" placeholder="First Name..." id="firstnameField">
-            <input type="text" class="inputfield" placeholder="Last Name..." id="lastnameField">
+            <input type="text" class="inputfield" placeholder="User Name..." id="usernameField">
             <input type="text" class="inputfield" placeholder="Email..." id="emailField">
             <input type="password" class="inputfield" placeholder="Password..." id="passwordField">
             <div class="actionBtnContainer">
                 <button class="btn" onclick="popup('loginModal')">Login</button>
-                <button class="btn" onclick="signup()">Register</button>    
+                <button class="btn" type="submit" onclick="signup()">Register</button>
             </div>
             <span class="crossButton" onclick="popup('signupModal')"><i class="fa fa-times"></i></span>
         </div>

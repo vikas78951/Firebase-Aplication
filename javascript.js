@@ -1,4 +1,71 @@
 
+///////////////
+// FUNCTIONS
+///////////////
+
+////////////
+// CLOSE ALL MODAL FUNCTION
+///////////
+function closePopupModal(){
+    var AllModals = document.querySelectorAll(".popupContainer");
+    AllModals.forEach(element => {
+        element.classList.remove('open');
+        Applicationbody.classList.remove("disabledBody");
+    });
+}
+
+
+////////////
+// EMPTY FIELDS
+///////////
+function emptyField(){
+
+    console.log("Empty field function")
+    var field = document.querySelectorAll(".inputfield");
+    field.forEach(field =>{
+        field.value = "" ;
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+//  SCRIPT JS CODE
+/////////////////////////////////////////////////////////////////////
+
+///////////////
+// HMBURGER BUTTON
+////////
 var hamburger = document.querySelector(".hamburgerContainer");
 var menuContaienr = document.querySelector(".menusContainer");
 
@@ -8,20 +75,18 @@ hamburger.addEventListener("click", function () {
 
 })
 
-
+////////////
+// DROPDOWN MENUS
+///////////
 var menus = document.querySelectorAll(".menusContainer .menu");
-
-
-
 window.addEventListener('resize', function () {
     var width = window.outerWidth;
-    if (width <= 700) {
+    if (width <= 950) {
         menus.forEach(element => {
             element.classList.remove("open");
         });
     }
 })
-
 menus.forEach(element => {
     element.addEventListener('click', function () {
         element.classList.toggle("open");
@@ -29,29 +94,19 @@ menus.forEach(element => {
 });
 
 
-// popup action 
-
+///////////
+// POPUP MODAL
 var Applicationbody = document.querySelector(".application");
-var AllModals = document.querySelectorAll(".popupContainer");
-
-
-var body = document.querySelector("body");
 function popup(id) {
-    Applicationbody.classList.toggle("disabledBody");
 
+    Applicationbody.classList.toggle("disabledBody");
+    emptyField();
     var modal = document.getElementById(id);
     if (modal.classList.contains('open')) {
-        AllModals.forEach(element => {
-            element.classList.remove('open');
-            Applicationbody.classList.remove("disabledBody");
-        });
-
+        closePopupModal();
     }
     else {
-        AllModals.forEach(element => {
-            element.classList.remove('open')
-
-        });
+        closePopupModal();
         modal.classList.add('open');
         Applicationbody.classList.add("disabledBody");
 
@@ -60,9 +115,8 @@ function popup(id) {
 
 
 //////////
-// Working with firebase 
+//INITIALIZING FIREBASE
 //////////
-
 var firebaseConfig = {
     apiKey: "AIzaSyBhCei_DM26QruEtPtITTkyCeq5hIDA2wI",
     authDomain: "web-application-78951.firebaseapp.com",
@@ -73,39 +127,50 @@ var firebaseConfig = {
     appId: "1:401271669770:web:419aa72fb5baaedc4f8bf3",
     measurementId: "G-LL27MELVD8"
 };
-
 firebase.initializeApp(firebaseConfig);
 
 
-var loginContainer = document.querySelector(".loginContainer");
-var userContainer = document.querySelector(".userContainer");
-firebase.auth().onAuthStateChanged(function(user){
-    if(user){
-        // If user is Loged in 
-        loginContainer.style.display="none";
-        userContainer.style.display="initial";
-        console.log(user.email)
+////////////
+// USER SIGNUP
+//////////////
+function signup() {
 
-    }
-    else{
-        //If user is Loged out
-        loginContainer.style.display="initial";
-        userContainer.style.display="none";
-    }
-});
+    //GETING VALUES
+    var userName = document.getElementById("usernameField").value;
+    var Email = document.getElementById("emailField").value;
+    var Pass = document.getElementById("passwordField").value;
 
+    // CREATING ACCOUNT
+    firebase.auth().createUserWithEmailAndPassword(Email, Pass).then(function () {
+        // IF ACCOUNT CREATED UPDATE DISPLAY NAME
+        var user = firebase.auth().currentUser;
+        user.updateProfile({
+            displayName: userName,
+        }).then(function () {
+            document.getElementById('logedinUser').innerHTML = userName;
+        }).catch(function (error) {
+            // IF ACCOUNT DOESN'T CREATE
+            console.log(error)
+        });
 
+        // CLOSE ALL POPUP MODALS
+            closePopupModal();
+    }).catch(function (error) {
+        // if error crated
+        console.log(error);
+    })
+}
+//////////////
+// USER LOGIN
+//////////
+function login() {
+    var email = document.getElementById('loginEmailField').value;
+    var password = document.getElementById('loginPassField').value;
 
-
-function signup(){
-    var fName = document.getElementById("firstnameField").value ;
-    var lName = document.getElementById("lastnameField").value ;
-    var Email = document.getElementById("emailField").value ;
-    var Pass  = document.getElementById("passwordField").value ;
-
-    console.log(fName + '' +lName+ '' +Email + '' +Pass )
-
-    firebase.auth().creteUserWithFirstNameAndLastNameAndEmailAndPassword(fName , lName , Email , Pass).catch(function(error){
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+        // close all modals
+        closePopupModal();
+    }).catch(function (error) {
         console.log(error)
     })
 }
@@ -113,22 +178,37 @@ function signup(){
 
 
 
+///////////////
+// USER LOGOUT
+//////////////
+function logout() {
+    firebase.auth().signOut().then(function () {
+        // IF SIGHOUT SUCCUSSFULL
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
 
+//////////////
+// AUTH STATE CHANGE
+///////////////
 
-
-
-
-
-
-
-
-
-
-
-
-// var email ="", password ="" ;
-// firebase.auth().signInWithEmailAndPassword(email,password).catch(function(error){
-//      alert(error);
-// })
-
-
+var loginContainer = document.querySelector(".loginContainer");
+var userContainer = document.querySelector(".userContainer");
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // LOGIN
+        loginContainer.style.display = "none";
+        userContainer.style.display = "initial";
+        if (user.displayName) {
+            document.getElementById('logedinUser').innerHTML = user.displayName;
+        } else {
+            document.getElementById('logedinUser').innerHTML = user.email;
+        }
+    }
+    else {
+        //LOGOUT
+        loginContainer.style.display = "initial";
+        userContainer.style.display = "none";
+    }
+});
