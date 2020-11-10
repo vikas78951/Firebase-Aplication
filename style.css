@@ -419,7 +419,7 @@ display:none
         padding:25px;
         position: relative;
     }
-    .loginContainer .btn , .userContainer .btn {
+    .loginContainer .btn, .userContainer .btn {
         border-radius: 4px;
     }
 
