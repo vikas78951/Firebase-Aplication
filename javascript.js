@@ -37,28 +37,6 @@ function emptyField(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ////////////////////////////////////////////////////////////////////
 //  SCRIPT JS CODE
 /////////////////////////////////////////////////////////////////////
@@ -211,4 +189,5 @@ firebase.auth().onAuthStateChanged(function (user) {
         loginContainer.style.display = "initial";
         userContainer.style.display = "none";
     }
+
 });
