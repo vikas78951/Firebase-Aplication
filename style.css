@@ -749,5 +749,9 @@
   .brandName {
     font-size: 20px;
   }
+  .brandImg {
+    height: 65%;
+    max-height: 60px;
+  }
 
 }
