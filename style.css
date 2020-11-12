@@ -756,5 +756,9 @@
     margin-top: 6px;
   }
 
+  .brandContainer {
+    min-width: auto;
+
+  }
 
 }
