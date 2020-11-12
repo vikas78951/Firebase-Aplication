@@ -44,18 +44,12 @@
     <!-- navbar -->
     <nav class="navContainer">
       <div class="brandContainer">
-        <img class="brandImg" src="./assets/Skull-Icon.svg" alt="">
-        <span class="brandName">skuller</span>
+        <img class="brandImg pr2" src="./assets/firebase.png" alt="">
+        <span class="brandName">Firebase Practice</span>
       </div>
       <ul class="menusContainer">
         <li class="menu">
-          <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
-          <div class="menuDropdown">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
-            facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
-            voluptate rem molestias ipsum.
-
-          </div>
+          <a class="menuLink" href="index.html"> Home</a>
         </li>
         <li class="menu">
           <a class="menuLink"> link 1 </a>
@@ -85,16 +79,16 @@
         </li>
         <li class="menu">
           <div class="loginContainer">
-            <button class="navbuttons btn" onclick="popup('loginModal')"> <i class="fa fa-user"></i> Login </button>
+            <button class="navbuttons btn ml2" onclick="popup('loginModal')"> <i class="fa fa-user-circle pr1"></i> Login </button>
           </div>
           <div class="userContainer">
             <button class="navbuttons btn">
-              <i class="fa fa-user"></i> <span class="userDetails" id="logedinUser"></span>
-              <i class="fa fa-caret-down" aria-hidden="true"></i>
+              <i class="fa fa-user-circle pr1"></i> <span class="userDetails" id="logedinUser"></span>
+              <i class="fa fa-caret-down pl1" aria-hidden="true"></i>
             </button>
             <div class="menuDropdown actionBtnContainer" style="flex-direction: column;">
-              <button class="btn fullWidth" onclick=""> <i class="fa fa-user"></i> Update Pofile </button>
-              <button class="btn fullWidth" onclick="logout()"> <i class="fa fa-user"></i> Logout </button>
+              <button class="btn fullWidth" onclick=""> <i class="fa fa-pencil-square-o pr1"></i> Update Pofile </button>
+              <button class="btn fullWidth " onclick="logout()"> <i class="fa fa-user-times pr1"></i> Logout </button>
             </div>
           </div>
         </li>
@@ -157,9 +151,9 @@
     <div class="popupContent">
       <h4 class="formHeader"> Signup to Application </h4>
       <form class="signinForm">
-      <input type="text" class="inputfield" placeholder="User Name..." id="usernameField">
-      <input type="text" class="inputfield" placeholder="Email..." id="emailField">
-      <input type="password" class="inputfield" placeholder="Password..." id="passwordField">
+      <input type="text" class="inputfield" placeholder="User Name..." id="usernameField" required>
+      <input type="text" class="inputfield" placeholder="Email..." id="emailField" required>
+      <input type="password" class="inputfield" placeholder="Password..." id="passwordField" required>
       <div class="actionBtnContainer">
         <button class="btn" onclick="popup('loginModal')">Login</button>
         <button class="btn signupbtn" type="submit">Register</button>
@@ -169,7 +163,13 @@
     </div>
   </div>
 
-
+<!-- //////////////// -->
+<!-- // ALERT CONTAINER -->
+<!-- //////////// -->
+<div class="alertContainer">
+  <span class="status">Success</span> : <span class="errorMessage">The deferred DOM Node could not be resolved into a valid node.</span>
+<span class="alertCloseBtn"><i class="fa fa-times"></i></span>
+</div>
 
 
   <!-- //////////// -->

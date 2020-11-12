@@ -1,3 +1,19 @@
+///////////////////
+// NEEDED VARIABLES
+///////////////
+var alertboxs = document.querySelector(".alertContainer");
+var alertCloseBtn = document.querySelector(".alertCloseBtn");
+var success = "#27AE60";
+var failed = "#E74C3C";
+var normal = "#3498DB "
+var application = document.querySelector(".application");
+var loading = document.querySelector('.loadingContainer');
+var hamburger = document.querySelector(".hamburgerContainer");
+var menuContaienr = document.querySelector(".menusContainer");
+var signinForm = document.querySelector(".signinForm");
+var loginForm = document.querySelector('.loginFrom');
+var loginContainer = document.querySelector(".loginContainer");
+var userContainer = document.querySelector(".userContainer");
 ///////////////
 // FUNCTIONS
 ///////////////
@@ -15,7 +31,7 @@ function closePopupModal() {
 
 
 ////////////
-// EMPTY FIELDS
+// EMPTY FIELDS FUNCTION
 ///////////
 function emptyField() {
   var field = document.querySelectorAll(".inputfield");
@@ -24,6 +40,38 @@ function emptyField() {
   })
 }
 
+///////////
+// CUSTOM ALERT BOX
+//////////
+function alertbox(status, msg) {
+  var stautsbox = document.querySelector(".status");
+  var msgbox = document.querySelector(".errorMessage");
+  if (status == "success") {
+    alertboxs.style.background = success;
+    alertboxs.style.boxShadow = "0px 0px 5px 1px " + success;
+    stautsbox.innerHTML = status;
+    msgbox.innerHTML = msg;
+    alertboxs.classList.add("alertOpen");
+  } else if (status == "failed") {
+    alertboxs.style.background = failed;
+    alertboxs.style.boxShadow = "0px 0px 5px 1px " + failed;
+    stautsbox.innerHTML = status;
+    msgbox.innerHTML = msg;
+    alertboxs.classList.add("alertOpen");
+  } else if (status == "normal") {
+    alertboxs.style.background = normal;
+    alertboxs.style.boxShadow = "0px 0px 5px 1px " + normal;
+    stautsbox.innerHTML = status;
+    msgbox.innerHTML = msg;
+    alertboxs.classList.add("alertOpen");
+  } else {
+    console.log("invalid status")
+  }
+  window.setTimeout(function(){
+  alertboxs.classList.remove("alertOpen");
+  },5000)
+
+}
 
 
 
@@ -39,8 +87,6 @@ function emptyField() {
 //////////
 // PAGE LOADING ANIMATION
 //////////
-var application = document.querySelector(".application");
-var loading = document.querySelector('.loadingContainer');
 application.style.display = "none";
 window.addEventListener('load', function() {
   window.setTimeout(function() {
@@ -56,9 +102,6 @@ window.addEventListener('load', function() {
 ///////////////
 // HMBURGER BUTTON
 ////////
-var hamburger = document.querySelector(".hamburgerContainer");
-var menuContaienr = document.querySelector(".menusContainer");
-
 hamburger.addEventListener("click", function() {
   hamburger.classList.toggle("active");
   menuContaienr.classList.toggle("active");
@@ -103,6 +146,13 @@ function popup(id) {
   }
 }
 
+/////////////
+// CLOSIGN ALERT BOX
+/////////////
+alertCloseBtn.addEventListener("click",function(){
+    alertboxs.classList.remove("alertOpen");
+})
+
 
 //////////
 //INITIALIZING FIREBASE
@@ -123,7 +173,6 @@ firebase.initializeApp(firebaseConfig);
 ////////////
 // USER SIGNUP
 //////////////
-var signinForm = document.querySelector(".signinForm");
 signinForm.addEventListener('submit', function(e) {
   e.preventDefault();
   var btn = document.querySelector(".signupbtn");
@@ -135,7 +184,6 @@ signinForm.addEventListener('submit', function(e) {
 
   // CREATING ACCOUNT
   firebase.auth().createUserWithEmailAndPassword(Email, Pass).then(function() {
-
     // IF ACCOUNT CREATED UPDATE DISPLAY NAME
     var user = firebase.auth().currentUser;
     user.updateProfile({
@@ -151,19 +199,18 @@ signinForm.addEventListener('submit', function(e) {
     btn.classList.remove("processing");
     // CLOSE ALL POPUP MODALS
     closePopupModal();
+    alertbox("success" , "Account Successfully Created");
   }).catch(function(error) {
     // remove processing from btn
     btn.classList.remove("processing");
-
     // if error crated
-    console.log(error);
+      alertbox("failed" ,  error.message);
   })
 
 })
 //////////////
 // USER LOGIN
 //////////
-var loginForm = document.querySelector('.loginFrom');
 loginForm.addEventListener('submit', function(e) {
   e.preventDefault();
   var btn = document.querySelector('.loginbtn');
@@ -173,11 +220,12 @@ loginForm.addEventListener('submit', function(e) {
   firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
     //remove processing class
     btn.classList.remove("processing");
+      alertbox("success", "LogedIn Successfull");
     // close all modals
     closePopupModal();
   }).catch(function(error) {
-    btn.classList.remove("processing");
-    console.log(error);
+      btn.classList.remove("processing");
+      alertbox("failed", error.message);
   });
   return false;
 });
@@ -199,9 +247,6 @@ function logout() {
 //////////////
 // AUTH STATE CHANGE
 ///////////////
-
-var loginContainer = document.querySelector(".loginContainer");
-var userContainer = document.querySelector(".userContainer");
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // LOGIN

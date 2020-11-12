@@ -7,7 +7,7 @@
   z-index: 10000;
   background: var(--background);
   display: grid;
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 25% 1fr;
   box-shadow: var(--shadow);
 }
 
@@ -40,7 +40,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 225px;
+  min-width: 325px;
   z-index: 20;
   margin-left: 20px;
 }
@@ -53,7 +53,7 @@
 }
 
 .brandName {
-  font-size: 34px;
+  font-size: 25px;
   font-weight: bolder;
   text-transform: uppercase;
   color: #ffffff;
@@ -66,6 +66,8 @@
   align-items: center;
   background-color: var(--background);
   clip-path: none;
+  width: max-content;
+  margin-left:auto;
 }
 
 .menusContainer .menu {
@@ -76,15 +78,19 @@
   list-style: none;
   transition: .5s ease;
   position: relative;
+  min-width: 90px
 }
 
 .menusContainer .menuLink {
   display: block;
   height: 100%;
+  width:100%;
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   background: var(--background);
-  padding: 0px 30px;
+  /* padding: 0px 30px; */
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -190,12 +196,29 @@
   font-size: 16px;
   cursor: pointer;
   transition: .2s ease;
-  width: max-content
+  width: max-content;
+  height: 40px;
+  line-height: 20px;
 }
 
 .btn:hover {
   transform: translate(0px, -2px) scale(1.05)
 }
+.fullWidth {
+  display: block;
+  width: 100% !important;
+}
+
+.btn.fullWidth {
+  display: block;
+  width: 99% !important;
+}
+
+.btn.processing {
+  background: linear-gradient(to right, red, maroon);
+  animation: processingBackground 1s ease infinite;
+}
+
 
 .navbuttons {
   margin-right: 50px;
@@ -278,6 +301,7 @@
   flex-grow: 1;
   margin: 3px;
   border-radius: 4px;
+  width:50%;
 }
 
 .crossButton {
@@ -433,6 +457,110 @@
   }
 }
 
+
+
+/* /////////////////////// */
+/* // ALERT BOX  */
+/* /////////////////////// */
+
+    .alertContainer {
+      position: fixed;
+      bottom: 5%;
+      right: 5%;
+      width: 100%;
+      max-width: 300px;
+      padding: 10px;
+      border-radius: 4px;
+      background: #3498DB;
+      box-shadow: 0px 0px 5px 1px #3498DB;
+      color: #f1f1f1;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      transform: translate(0, 100vh);
+      visibility: hidden;
+      animation: alertClose 1s linear;
+    }
+
+    .alertContainer.alertOpen {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+      animation: alertOpen 1s linear
+    }
+
+    @keyframes alertOpen {
+      0% {
+        transform: translate(0, 100vh);
+        visibility: hidden;
+        opacity: 0
+      }
+      100% {
+        transform: translate(0, 0);
+        visibility: visible;
+        opacity: 1
+      }
+
+    }
+
+
+
+    @keyframes alertClose {
+      0% {
+        transform: translate(0, 0);
+        visibility: visible;
+        opacity: 1
+      }
+      100% {
+        transform: translate(0, 100vh);
+        visibility: hidden;
+        opacity: 0
+      }
+    }
+    .alertContainer .status {
+      font-weight: bolder;
+      font-size: 14px;
+      text-transform: capitalize;
+    }
+
+    .alertContainer .errorMessage {
+      font-size: 14px;
+    }
+    .alertCloseBtn{
+      position: absolute;
+      top:0px;
+      right:5px;
+      cursor: pointer;
+    }
+    .alertCloseBtn:hover .fa{
+    transition: .3s linear;
+    transform:scale(1.3);
+    color:#222
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* //////////////////// */
 /* MEDIA QUERY  */
 /* /////////////////// */
@@ -543,8 +671,10 @@
     line-height: 60px;
     width: 100%;
     justify-content: start;
-    align-items: center;
+    align-items: left !important;
     padding: auto;
+    text-align: left;
+    padding: 0px 30px
   }
 
   .loginContainer, .userContainer {

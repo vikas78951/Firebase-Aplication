@@ -39,6 +39,101 @@ body {
   transform: translate(0,0);
 }
 
+/* paddings */
+.p1{
+  padding:5px !important
+}
+.p2{
+  padding:10px !important
+}
+.p3{
+  padding:15px !important
+}
+.pl1{
+  padding-left:5px !important
+}
+.pl2{
+  padding-left:10px !important
+}
+.pl3{
+  padding-left:15px !important
+}
+.pr1{
+  padding-right:5px !important
+}
+.pr2{
+  padding-right:10px !important
+}
+.pr3{
+  padding-right:15px !important
+}
+.pb1{
+  padding-bottom:5px !important
+}
+.pb2{
+  padding-bottom:10px !important
+}
+.pb3{
+  padding-bottom:15px !important
+}
+.pt1{
+  padding-top:5px !important
+}
+.pt2{
+  padding-top:10px !important
+}
+.pt3{
+  padding-top:15px !important
+}
+
+
+/* margin  */
+.m1{
+  margin:5px !important
+}
+.m2{
+  margin:10px !important
+}
+.m3{
+  margin:15px !important
+}
+.ml1{
+  margin-left:5px !important
+}
+.ml2{
+  margin-left:10px !important
+}
+.ml3{
+  margin-left:15px !important
+}
+.mr1{
+  margin-right:5px !important
+}
+.mr2{
+  margin-right:10px !important
+}
+.mr3{
+  margin-right:15px !important
+}
+.mb1{
+  margin-bottom:5px !important
+}
+.mb2{
+  margin-bottom:10px !important
+}
+.mb3{
+  margin-bottom:15px !important
+}
+.mt1{
+  margin-top:5px !important
+}
+.mt2{
+  margin-top:10px !important
+}
+.mt3{
+  margin-top:15px !important
+}
+
 @keyframes pageload {
   from {
     opacity: 0;
@@ -135,21 +230,6 @@ button {
 button:focus {
   appearance: none;
   outline: none;
-}
-
-.fullWidth {
-  display: block;
-  width: 100% !important;
-}
-
-.btn.fullWidth {
-  display: block;
-  width: 99% !important;
-}
-
-.btn.processing {
-  background: linear-gradient(to right, red, maroon);
-  animation: processingBackground 1s ease infinite;
 }
 
 @keyframes processingBackground {
