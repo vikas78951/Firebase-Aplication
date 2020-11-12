@@ -446,7 +446,7 @@
 
   25%, 75% {
     -webkit-transform: perspective(140px) rotateX(0deg);
-    transform: perspective(140px) rotateX(0deg);chear
+    transform: perspective(140px) rotateX(0deg);
     opacity: 1;
   }
 
