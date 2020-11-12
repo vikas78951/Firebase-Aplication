@@ -1,141 +1,188 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <meta charset="UT-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Application</title>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta charset="UT-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Application</title>
 
 
 
-    <!-- FA ICON CDN  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- FA ICON CDN  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- BASED CSS  -->
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="style.css">
+  <!-- BASED CSS  -->
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
 
 
 </head>
 
 <body>
-   <div class="application" id="applicationBody">
+
+  <!-- //////////// -->
+  <!-- // PAGE LOADING ANIMATION -->
+  <!-- /////////// -->
+  <div class="loadingContainer">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
 
 
 
+  <!-- //////////////// -->
+  <!-- // APPLICATION CONTAINER  -->
+  <!-- /////////////// -->
+
+  <div class="application" id="applicationBody">
+    <!-- ////////////////////////////////////// -->
+    <!-- navbar -->
     <nav class="navContainer">
-        <div class="brandContainer">
-            <img class="brandImg" src="./assets/Skull-Icon.svg" alt="">
-            <span class="brandName">skuller</span>
-        </div>
-        <ul class="menusContainer">
-            <li class="menu">
-                <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
-                <div class="menuDropdown">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
-                    facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
-                    voluptate rem molestias ipsum.
+      <div class="brandContainer">
+        <img class="brandImg" src="./assets/Skull-Icon.svg" alt="">
+        <span class="brandName">skuller</span>
+      </div>
+      <ul class="menusContainer">
+        <li class="menu">
+          <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+          <div class="menuDropdown">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
+            facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
+            voluptate rem molestias ipsum.
 
-                </div>
-            </li>
-            <li class="menu">
-                <a class="menuLink"> link 1 </a>
-            </li>
-            <li class="menu">
-                <a class="menuLink"> link 1 </a>
-            </li>
-            <li class="menu">
-                <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
-                <div class="menuDropdown">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
-                    facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
-                    voluptate rem molestias ipsum.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
-                    facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
-                    voluptate rem molestias ipsum.
-                </div>
-            </li>
-            <li class="menu">
-                <a class="menuLink"> link 1 </a>
-            </li>
-            <li class="menu">
-                <a class="menuLink"> link 1 </a>
-            </li>
-            <li class="menu">
-                <a class="menuLink"> link 1 </a>
-            </li>
-            <li class="menu">
-                <div class="loginContainer">
-                    <button class="navbuttons btn" onclick="popup('loginModal')"> <i class="fa fa-user"></i>  Login </button>
-                </div>
-                <div class="userContainer">
-                        <button class="navbuttons btn">
-                            <i class="fa fa-user"></i> <span class="userDetails" id="logedinUser"></span>
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </button>
-                        <div class="menuDropdown actionBtnContainer" style="flex-direction: column;">
-                            <button class="btn fullWidth" onclick=""> <i class="fa fa-user"></i>  Update Pofile </button>
-                            <button class="btn fullWidth" onclick="logout()"> <i class="fa fa-user"></i>  Logout </button>
-                        </div>
-                </div>
-
-
-
-            </li>
-
-        </ul>
-        <div class="hamburgerContainer" id="hamburger">
-            <span class="stroke stroke1">1</span>
-            <span class="stroke stroke2">2</span>
-            <span class="stroke stroke3">3</span>
-        </div>
+          </div>
+        </li>
+        <li class="menu">
+          <a class="menuLink"> link 1 </a>
+        </li>
+        <li class="menu">
+          <a class="menuLink"> link 1 </a>
+        </li>
+        <li class="menu">
+          <a class="menuLink"> link 1 <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+          <div class="menuDropdown">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
+            facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
+            voluptate rem molestias ipsum.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore minima maxime repudiandae velit
+            facilis eius iure quas, fugiat assumenda consectetur dolor animi odit consequuntur dolorum, nobis
+            voluptate rem molestias ipsum.
+          </div>
+        </li>
+        <li class="menu">
+          <a class="menuLink"> link 1 </a>
+        </li>
+        <li class="menu">
+          <a class="menuLink"> link 1 </a>
+        </li>
+        <li class="menu">
+          <a class="menuLink"> link 1 </a>
+        </li>
+        <li class="menu">
+          <div class="loginContainer">
+            <button class="navbuttons btn" onclick="popup('loginModal')"> <i class="fa fa-user"></i> Login </button>
+          </div>
+          <div class="userContainer">
+            <button class="navbuttons btn">
+              <i class="fa fa-user"></i> <span class="userDetails" id="logedinUser"></span>
+              <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </button>
+            <div class="menuDropdown actionBtnContainer" style="flex-direction: column;">
+              <button class="btn fullWidth" onclick=""> <i class="fa fa-user"></i> Update Pofile </button>
+              <button class="btn fullWidth" onclick="logout()"> <i class="fa fa-user"></i> Logout </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="hamburgerContainer" id="hamburger">
+        <span class="stroke stroke1">1</span>
+        <span class="stroke stroke2">2</span>
+        <span class="stroke stroke3">3</span>
+      </div>
     </nav>
     <div class="navMask"> mask </div>
 
-    <div class="block"> block </div>
-    <div class="block"> block </div>
-    <div class="block"> block </div>
-    <div class="block"> block </div>
-    <div class="block"> block </div>
+<!-- //////////////////// -->
+<!-- heroStandard -->
+    <!-- <div class="heroStandard">
+      <div class="heroStandardCarousel">
+        <div class="heroItem">item 1</div>
+        <div class="heroItem">item 2</div>
+        <div class="heroItem">item 3</div>
+        <div class="heroItem">item 4</div>
+      </div>
+    </div> -->
+
+<!-- ////////////////////////////// -->
+<!-- demo statement  -->
+<!-- //////////////////////////////// -->
 
 
-</div>
 
-    <div class="popupContainer " id="loginModal">
-        <div class="popupContent">
-            <h4 class="formHeader">
-                Login to Application
-            </h4>
-            <input type="text" class="inputfield" placeholder="Email..." id="loginEmailField">
-            <input type="password" class="inputfield" placeholder="Password..." id="loginPassField">
-            <div class="actionBtnContainer">
-                <button class="btn" type="submit" onclick="login()">Login</button>
-                <button class="btn" onclick="popup('signupModal')">Signup</button>
-            </div>
-            <span class="crossButton" onclick="popup('loginModal')"><i class="fa fa-times"></i></span>
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+    <div class="block"> block </div>
+  </div>
+<!-- </div> -->
+
+
+
+  <!-- ////////////// -->
+  <!-- // POPUPS -->
+  <!-- ///////////// -->
+  <div class="popupContainer " id="loginModal">
+    <div class="popupContent">
+      <h4 class="formHeader">
+        Login to Application
+      </h4>
+      <form class="loginFrom">
+        <input type="text" class="inputfield" placeholder="Email..." id="loginEmailField" required>
+        <input type="password" class="inputfield" placeholder="Password..." id="loginPassField" required>
+        <div class="actionBtnContainer">
+          <button class="btn loginbtn" type="submit">Login</button>
+          <button class="btn" onclick="popup('signupModal')">Signup</button>
         </div>
+      </form>
+
+      <span class="crossButton" onclick="popup('loginModal')"><i class="fa fa-times"></i></span>
     </div>
-
-    <div class="popupContainer " id="signupModal">
-        <div class="popupContent">
-            <h4 class="formHeader">   Signup to Application   </h4>
-            <input type="text" class="inputfield" placeholder="User Name..." id="usernameField">
-            <input type="text" class="inputfield" placeholder="Email..." id="emailField">
-            <input type="password" class="inputfield" placeholder="Password..." id="passwordField">
-            <div class="actionBtnContainer">
-                <button class="btn" onclick="popup('loginModal')">Login</button>
-                <button class="btn" type="submit" onclick="signup()">Register</button>
-            </div>
-            <span class="crossButton" onclick="popup('signupModal')"><i class="fa fa-times"></i></span>
-        </div>
+  </div>
+  <div class="popupContainer " id="signupModal">
+    <div class="popupContent">
+      <h4 class="formHeader"> Signup to Application </h4>
+      <form class="signinForm">
+      <input type="text" class="inputfield" placeholder="User Name..." id="usernameField">
+      <input type="text" class="inputfield" placeholder="Email..." id="emailField">
+      <input type="password" class="inputfield" placeholder="Password..." id="passwordField">
+      <div class="actionBtnContainer">
+        <button class="btn" onclick="popup('loginModal')">Login</button>
+        <button class="btn signupbtn" type="submit">Register</button>
+      </div>
+        </form>
+      <span class="crossButton" onclick="popup('signupModal')"><i class="fa fa-times"></i></span>
     </div>
-
-
-    <!-- firebase cdn  -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
-
-    <script src="javascript.js"></script>
+  </div>
 
 
 
 
-</body></html>
+  <!-- //////////// -->
+  <!-- firebase cdn  -->
+  <!-- //////////// -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+
+  <script src="javascript.js"></script>
+
+
+
+
+</body>
+
+</html>
