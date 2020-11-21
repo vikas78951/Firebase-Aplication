@@ -231,7 +231,7 @@ signinForm.addEventListener('submit', function(e) {
 });
 
 var actionCodeSettings ={
- url:
+ url : "https://firebase-aplication-k7ra0oc05.vercel.app"
 }
 
 
