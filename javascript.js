@@ -14,6 +14,9 @@ var signinForm = document.querySelector(".signinForm");
 var loginForm = document.querySelector('.loginFrom');
 var loginContainer = document.querySelector(".loginContainer");
 var userContainer = document.querySelector(".userContainer");
+var Applicationbody = document.querySelector(".application");
+var innerApplication  = document.querySelector(".innerApplication");
+
 ///////////////
 // FUNCTIONS
 ///////////////
@@ -67,6 +70,7 @@ function alertbox(status, msg) {
   } else {
     console.log("invalid status")
   }
+
   window.setTimeout(function(){
   alertboxs.classList.remove("alertOpen");
   },5000)
@@ -129,8 +133,6 @@ menus.forEach(element => {
 
 ///////////
 // POPUP MODAL
-var Applicationbody = document.querySelector(".application");
-
 function popup(id) {
 
   Applicationbody.classList.toggle("disabledBody");
@@ -154,9 +156,28 @@ alertCloseBtn.addEventListener("click",function(){
 })
 
 
+///////////
+// Window Scroll Activity
+////////////
+innerApplication.addEventListener('scroll', function(){
+  // console.log("scrolled")
+  var nav = document.querySelector('.navContainer');
+  var scrolled =   innerApplication.scrollTop;
+  if(scrolled > 0){
+    nav.style.boxShadow = " 0px 0px 8px 0px lightgray"
+  }else {
+    nav.style.boxShadow = "none"
+  }
+
+})
+
+
 //////////
 //INITIALIZING FIREBASE
 //////////
+
+// Using Project : web-application-78951
+// ///////
 var firebaseConfig = {
   apiKey: "AIzaSyBhCei_DM26QruEtPtITTkyCeq5hIDA2wI",
   authDomain: "web-application-78951.firebaseapp.com",
@@ -207,7 +228,20 @@ signinForm.addEventListener('submit', function(e) {
       alertbox("failed" ,  error.message);
   })
 
-})
+});
+
+var actionCodeSettings ={
+ url:
+}
+
+
+
+
+
+
+
+
+
 //////////////
 // USER LOGIN
 //////////

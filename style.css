@@ -1,5 +1,14 @@
-.navContainer {
+.application{
   position: fixed;
+overflow: hidden;
+}
+.innerApplication{
+  height:100%;
+  width:100%;
+  overflow-x:scroll;
+}
+.navContainer {
+  position: fixed !important;
   top: 0;
   left: 0;
   height: var(--headerHeight);
@@ -8,7 +17,7 @@
   background: var(--background);
   display: grid;
   grid-template-columns: 25% 1fr;
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
 }
 
 .navMask {
@@ -539,10 +548,59 @@
     }
 
 
+/* Other Signup Blocks */
+.OtherSignupOption{
+  display:block;
+  position: relative;
+  background:#fff;
+  min-height: 400px;
+}
+.row{
+  display:flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.col{
+  flex-grow: 1;
+  flex-basis: 0
+}
+.signupHeaderContainer ,.buttonContainer{
+  display: flex;
+  width:100%;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: transparent;
+  flex-direction: column;
+  justify-content: space-around;
+    min-height: 400px
+}
+.signupHeaderContainer::before{
+  content: '';
+  position: absolute;
+  top:0px;
+  left:0px;
+  z-index: 1;
+  height:100%;
+  width:120%;
+  background:var(--background);
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
 
+}
+.signupHeader{
+  font-size: 70px;
+  padding:10%;
+  font-weight: bolder;
+  text-transform: capitalize;
+  z-index: 2;
+  color:white;
+  font-family: var(--fontBold)
+}
 
-
-
+.OtherSignupOption .buttonContainer .btn {
+  width:200px
+}
 
 
 
